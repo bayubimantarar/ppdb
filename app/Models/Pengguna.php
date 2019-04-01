@@ -9,6 +9,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Pengguna extends Authenticatable
 {
+    # set table
+    protected $table = 'pengguna';
+
     # set guard
     protected $guard = 'pengguna';
 

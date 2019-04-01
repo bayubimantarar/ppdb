@@ -15,6 +15,14 @@ Route::group(['prefix' => 'autentikasi'], function() {
         'uses' => 'Authentication\PenggunaAuthenticationController@loginForm',
         'as' => 'authentication.pengguna.login_form'
     ]);
+    Route::post('/login', [
+        'uses' => 'Authentication\PenggunaAuthenticationController@login',
+        'as' => 'authentication.pengguna.login'
+    ]);
+    Route::post('/logout', [
+        'uses' => 'Authentication\PenggunaAuthenticationController@logout',
+        'as' => 'authentication.pengguna.logout'
+    ]);
 });
 
 Route::group(['middleware' => 'auth:pengguna'], function(){

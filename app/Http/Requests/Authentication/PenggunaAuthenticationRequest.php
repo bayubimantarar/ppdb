@@ -24,7 +24,7 @@ class PenggunaAuthenticationRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required|email',
+            'email' => 'required',
             'password' => 'required'
         ];
     }
@@ -38,7 +38,6 @@ class PenggunaAuthenticationRequest extends FormRequest
     {
         return [
             'email.required' => 'Email perlu diisi!',
-            'email.email' => 'Format email tidak sesuai!',
             'password.required' => 'Kata sandi perlu diisi!'
         ];
     }
