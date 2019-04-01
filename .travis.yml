@@ -1,0 +1,17 @@
+language: php
+
+php:
+  - 7.3
+
+install:
+  - cp .env.testing .env
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - php artisan key:generate
+
+before_script:
+  - mysql -e 'create database ppdb;'
+  - php artisan migrate
+  - php artisan db:seed
+
+script:
+  - /vendor/bin/phpunit
