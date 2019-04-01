@@ -1,3 +1,4 @@
+[![Build Status](https://img.shields.io/travis/bayubimantarar/ppdb.svg?style=flat-square)](https://travis-ci.org/bayubimantarar/ppdb)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/bayubimantarar/ppdb/pulls)
 ![GitHub](https://img.shields.io/github/license/bayubimantarar/ppdb.svg?style=flat-square)
 
