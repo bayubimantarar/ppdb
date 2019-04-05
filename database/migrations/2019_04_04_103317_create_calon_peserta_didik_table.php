@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCalonSiswaTable extends Migration
+class CreateCalonPesertaDidikTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateCalonSiswaTable extends Migration
      */
     public function up()
     {
-        Schema::create('calon_siswa', function (Blueprint $table) {
+        Schema::create('calon_peserta_didik', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nisn', 20);
             $table->text('alamat');
-            $table->string('nhun', 15);
+            $table->string('latitude', 150);
+            $table->string('longitude', 150);
+            $table->string('nilai_nhun', 15);
             $table->string('skor_jarak', 15);
             $table->string('skor_total', 15);
             $table->timestamps();
@@ -31,6 +33,6 @@ class CreateCalonSiswaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calon_siswa');
+        Schema::dropIfExists('calon_peserta_didik');
     }
 }

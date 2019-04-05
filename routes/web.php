@@ -30,4 +30,26 @@ Route::group(['middleware' => 'auth:pengguna'], function(){
         'uses' => 'DashboardController@index',
         'as' => 'dashboard'
     ]);
+    Route::group(['prefix' => 'calon-peserta-didik'], function(){
+        Route::get('/', [
+            'uses' => 'CalonPesertaDidikController@index',
+            'as' => 'calon_peserta_didik'
+        ]);
+        Route::get('/data', [
+            'uses' => 'CalonPesertaDidikController@data',
+            'as' => 'calon_peserta_didik.data'
+        ]);
+        Route::get('/form-tambah', [
+            'uses' => 'CalonPesertaDidikController@create',
+            'as' => 'calon_peserta_didik.form_tambah'
+        ]);
+        Route::post('/simpan', [
+            'uses' => 'CalonPesertaDidikController@store',
+            'as' => 'calon_peserta_didik.simpan'
+        ]);
+        Route::delete('/hapus/{id}', [
+            'uses' => 'CalonPesertaDidikController@destroy',
+            'as' => 'calon_peserta_didik.hapus'
+        ]);
+    });
 });
