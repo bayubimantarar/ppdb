@@ -6,7 +6,7 @@
 Penerimaan peserta didik baru adalah sebuah aplikasi yang bertujuan untuk :
 1. Memudahkan penyeleksian siswa baru, dengan cara :
     1. Zonasi atau melihat jarak kilometer alamat dengan sekolah
-    2. Perhitungan penyeleksian dengan hasil skor nhun
+    2. Perhitungan penyeleksian dengan skor jarak dan nilai nhun [referensi](http://jabar.tribunnews.com/2018/07/04/begini-penghitungan-bobot-skor-ppdb-jalur-nhun)
 2. Ter-_komputerisasi_ supaya lebih mudah
 
 ## Installation

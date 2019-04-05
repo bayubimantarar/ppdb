@@ -183,7 +183,6 @@ class CalonPesertaDidikTest extends DuskTestCase
                 ->pause(3000)
                 ->clickLink('Hapus')
                 ->acceptDialog()
-                // ->acceptDialog()
                 ->assertPathIs('/calon-peserta-didik');
         });
     }
