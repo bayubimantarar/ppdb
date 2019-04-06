@@ -43,9 +43,17 @@ Route::group(['middleware' => 'auth:pengguna'], function(){
             'uses' => 'CalonPesertaDidikController@create',
             'as' => 'calon_peserta_didik.form_tambah'
         ]);
+        Route::get('/form-ubah/{id}', [
+            'uses' => 'CalonPesertaDidikController@edit',
+            'as' => 'calon_peserta_didik.form_ubah'
+        ]);
         Route::post('/simpan', [
             'uses' => 'CalonPesertaDidikController@store',
             'as' => 'calon_peserta_didik.simpan'
+        ]);
+        Route::put('/ubah/{id}', [
+            'uses' => 'CalonPesertaDidikController@update',
+            'as' => 'calon_peserta_didik.ubah'
         ]);
         Route::delete('/hapus/{id}', [
             'uses' => 'CalonPesertaDidikController@destroy',

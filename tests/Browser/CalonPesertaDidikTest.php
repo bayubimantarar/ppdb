@@ -171,6 +171,36 @@ class CalonPesertaDidikTest extends DuskTestCase
      * @test
      * @return void
      */
+    public function updateCalonPesertaDidik()
+    {
+        # find super admin
+        $pengguna = Pengguna::find(1);
+
+        $this->browse(function (Browser $browser) use($pengguna) {
+            $browser
+                ->loginAs($pengguna, 'pengguna')
+                ->visit('/calon-peserta-didik')
+                ->pause(3000)
+                ->clickLink('Ubah')
+                ->type('nisn', '1327')
+                ->type('provinsi', 'Jawa Barat')
+                ->type('kabupaten_kota', 'Bandung Barat')
+                ->type('kecamatan', 'Padalarang')
+                ->type('kode_pos', NULL)
+                ->type('alamat', 'Jl. Raya Padalarang No 17')
+                ->clickLink('Temukan alamat')
+                ->pause(5000)
+                ->type('nilai_nhun', '70')
+                ->press('Simpan')
+                ->assertPathIs('/calon-peserta-didik');
+        });
+    }
+
+    /**
+     * A Dusk test example.
+     * @test
+     * @return void
+     */
     public function deleteCalonPesertaDidik()
     {
         # find super admin

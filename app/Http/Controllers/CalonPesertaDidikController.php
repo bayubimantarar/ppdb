@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use DataTables;
+use App\Models\Alamat;
 use Illuminate\Http\Request;
 use App\Models\CalonPesertaDidik;
 use App\Http\Requests\CalonPesertaDidikRequest;
@@ -16,19 +17,27 @@ class CalonPesertaDidikController extends Controller
      */
     public function data()
     {
-        $calonPesertaDidik = CalonPesertaDidik::all();
+        $calonPesertaDidik = CalonPesertaDidik::with('alamat')->get();
 
         $dataTablesCalonPesertaDidik = DataTables($calonPesertaDidik)
             ->addColumn('action', function($calonPesertaDidik){
                 return '
-                    <a
-                        href="#hapus"
-                        id="delete-button"
-                        class="btn btn-sm btn-danger"
-                        onclick="destroy('.$calonPesertaDidik->id.')"
-                    >
-                        <i class="fas fa-times"></i> Hapus
-                    </a>
+                    <center>
+                        <a
+                            href="/calon-peserta-didik/form-ubah/'.$calonPesertaDidik->id.'"
+                            class="btn btn-sm btn-warning"
+                        >
+                            <i class="fas fa-pencil-alt"></i> Ubah
+                        </a>
+                        <a
+                            href="#hapus"
+                            id="delete-button"
+                            class="btn btn-sm btn-danger"
+                            onclick="destroy('.$calonPesertaDidik->id.')"
+                        >
+                            <i class="fas fa-times"></i> Hapus
+                        </a>
+                    </center>
                 ';
             })
             ->rawColumns(['action'])
@@ -65,25 +74,39 @@ class CalonPesertaDidikController extends Controller
      */
     public function store(CalonPesertaDidikRequest $calonPesertaDidikRequest)
     {
-        $nisn       = $calonPesertaDidikRequest->nisn;
-        $alamat     = $calonPesertaDidikRequest->alamat;
-        $latitude   = $calonPesertaDidikRequest->latitude;
-        $longitude  = $calonPesertaDidikRequest->longitude;
-        $nilaiNHUN  = $calonPesertaDidikRequest->nilai_nhun;
-        $skorJarak  = $calonPesertaDidikRequest->skor_jarak;
-        $skorTotal  = $calonPesertaDidikRequest->skor_total;
+        $nisn           = $calonPesertaDidikRequest->nisn;
+        $provinsi       = $calonPesertaDidikRequest->provinsi;
+        $kabupatenKota  = $calonPesertaDidikRequest->kabupaten_kota;
+        $kecamatan      = $calonPesertaDidikRequest->kecamatan;
+        $kodePos        = $calonPesertaDidikRequest->kode_pos;
+        $alamat         = $calonPesertaDidikRequest->alamat;
+        $latitude       = $calonPesertaDidikRequest->latitude;
+        $longitude      = $calonPesertaDidikRequest->longitude;
+        $nilaiNHUN      = $calonPesertaDidikRequest->nilai_nhun;
+        $skorJarak      = $calonPesertaDidikRequest->skor_jarak;
+        $skorTotal      = $calonPesertaDidikRequest->skor_total;
 
-        $data = [
+        $dataCalonPesertaDidik = [
             'nisn'          => $nisn,
-            'alamat'        => $alamat,
-            'latitude'      => $latitude,
-            'longitude'     => $longitude,
             'nilai_nhun'    => $nilaiNHUN,
             'skor_jarak'    => $skorJarak,
             'skor_total'    => $skorTotal
         ];
 
-        $storeCalonPesertaDidik = CalonPesertaDidik::create($data);
+        $storeCalonPesertaDidik = CalonPesertaDidik::create($dataCalonPesertaDidik);
+
+        $dataAlamat = [
+            'calon_peserta_didik_id' => $storeCalonPesertaDidik->id,
+            'alamat' => $alamat,
+            'provinsi' => $provinsi,
+            'kabupaten_kota' => $kabupatenKota,
+            'kecamatan' => $kecamatan,
+            'kode_pos' => $kodePos,
+            'latitude' => $latitude,
+            'longitude' => $longitude
+        ];
+
+        $storeAlamat = Alamat::create($dataAlamat);
 
         return redirect('/calon-peserta-didik')
             ->with([
@@ -110,7 +133,9 @@ class CalonPesertaDidikController extends Controller
      */
     public function edit($id)
     {
-        //
+        $calonPesertaDidik = CalonPesertaDidik::with('alamat')->findOrFail($id);
+
+        return view('calon_peserta_didik.form_edit', compact('calonPesertaDidik'));
     }
 
     /**
@@ -120,9 +145,48 @@ class CalonPesertaDidikController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(CalonPesertaDidikRequest $calonPesertaDidikRequest, $id)
     {
-        //
+        $nisn           = $calonPesertaDidikRequest->nisn;
+        $provinsi       = $calonPesertaDidikRequest->provinsi;
+        $kabupatenKota  = $calonPesertaDidikRequest->kabupaten_kota;
+        $kecamatan      = $calonPesertaDidikRequest->kecamatan;
+        $kodePos        = $calonPesertaDidikRequest->kode_pos;
+        $alamat         = $calonPesertaDidikRequest->alamat;
+        $latitude       = $calonPesertaDidikRequest->latitude;
+        $longitude      = $calonPesertaDidikRequest->longitude;
+        $nilaiNHUN      = $calonPesertaDidikRequest->nilai_nhun;
+        $skorJarak      = $calonPesertaDidikRequest->skor_jarak;
+        $skorTotal      = $calonPesertaDidikRequest->skor_total;
+
+        $dataCalonPesertaDidik = [
+            'nisn'          => $nisn,
+            'nilai_nhun'    => $nilaiNHUN,
+            'skor_jarak'    => $skorJarak,
+            'skor_total'    => $skorTotal
+        ];
+
+        $updateCalonPesertaDidik = CalonPesertaDidik::where('id', $id)
+            ->update($dataCalonPesertaDidik);
+
+        $dataAlamat = [
+            'calon_peserta_didik_id' => $id,
+            'alamat' => $alamat,
+            'provinsi' => $provinsi,
+            'kabupaten_kota' => $kabupatenKota,
+            'kecamatan' => $kecamatan,
+            'kode_pos' => $kodePos,
+            'latitude' => $latitude,
+            'longitude' => $longitude
+        ];
+
+        $updateAlamat = Alamat::where('calon_peserta_didik_id', $id)
+            ->update($dataAlamat);
+
+        return redirect('/calon-peserta-didik')
+            ->with([
+                'notification' => 'Data berhasil diubah!'
+            ]);
     }
 
     /**

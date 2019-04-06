@@ -21,6 +21,14 @@ Dasbor &raquo; Calon peserta didik | PPDB
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                <p>
+                    <a
+                        href="/calon-peserta-didik/form-tambah"
+                        class="btn btn-primary"
+                    >
+                        <i class="fas fa-plus"></i> Tambah calon peserta didik
+                    </a>
+                </p>
                 <table
                     class="table table-bordered"
                     id="calon-peserta-didik-data-table"
@@ -28,7 +36,6 @@ Dasbor &raquo; Calon peserta didik | PPDB
                   <thead>
                     <tr>
                       <th>NISN</th>
-                      <th>Alamat</th>
                       <th>Skor Jarak</th>
                       <th>Nilai NHUN</th>
                       <th>Skor Total</th>
@@ -38,7 +45,6 @@ Dasbor &raquo; Calon peserta didik | PPDB
                   <tfoot>
                     <tr>
                       <th>NISN</th>
-                      <th>Alamat</th>
                       <th>Skor Jarak</th>
                       <th>Nilai NHUN</th>
                       <th>Skor Total</th>
@@ -63,7 +69,6 @@ var calon_peserta_didik_table = $('#calon-peserta-didik-data-table').DataTable({
   datatype: 'json',
   columns: [
       {data: 'nisn'},
-      {data: 'alamat'},
       {data: 'skor_jarak'},
       {data: 'nilai_nhun'},
       {data: 'skor_total'},

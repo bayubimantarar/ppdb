@@ -33,9 +33,6 @@
     </a>
     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
-        <a class="collapse-item" href="cards.html">
-            <i class="fas fa-plus"></i> Tambah
-        </a>
         <a class="collapse-item" href="/calon-peserta-didik">
             <i class="fas fa-grip-horizontal"></i> Data
         </a>

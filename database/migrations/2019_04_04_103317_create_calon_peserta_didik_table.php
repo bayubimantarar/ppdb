@@ -16,9 +16,6 @@ class CreateCalonPesertaDidikTable extends Migration
         Schema::create('calon_peserta_didik', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('nisn', 20);
-            $table->text('alamat');
-            $table->string('latitude', 150);
-            $table->string('longitude', 150);
             $table->string('nilai_nhun', 15);
             $table->string('skor_jarak', 15);
             $table->string('skor_total', 15);
