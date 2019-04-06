@@ -19,5 +19,4 @@ before_script:
   - php artisan serve &
 
 script:
-  - vendor/bin/phpunit
   - php artisan dusk
