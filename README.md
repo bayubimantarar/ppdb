@@ -33,3 +33,7 @@ Test with phpunit
 Test with laravel dusk
     
     php artisan dusk
+
+## On Progress
+1. Maps masih belum seakurat [Google Maps](https://www.google.com/maps), oleh karena itu pencarian alamat berdasarkan Provinsi, Kabupaten/Kota, Kecamatan dan Kode Pos
+2. Alamat sudah ditemukan tetapi maps kadang tidak muncul, itu karena [OSRM](https://github.com/Project-OSRM/osrm-backend/wiki/Demo-server) versi DEMO, memiliki batasan _request_
