@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "24c32276e86adce3a013a7d9e7aa6547",
+    "content-hash": "07b5672b0e00a1da6e4db3bb6231f208",
     "packages": [
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -4499,6 +4499,51 @@
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
             "time": "2016-10-03T07:35:21+00:00"
+        },
+        {
+            "name": "staudenmeir/dusk-updater",
+            "version": "v1.0.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/staudenmeir/dusk-updater.git",
+                "reference": "a92b183070f4d37eedbd4a64465c7bda023aa1e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/staudenmeir/dusk-updater/zipball/a92b183070f4d37eedbd4a64465c7bda023aa1e2",
+                "reference": "a92b183070f4d37eedbd4a64465c7bda023aa1e2",
+                "shasum": ""
+            },
+            "require": {
+                "ext-openssl": "*",
+                "ext-zip": "*",
+                "php": ">=5.6.4"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Staudenmeir\\DuskUpdater\\DuskServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Staudenmeir\\DuskUpdater\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jonas Staudenmeir",
+                    "email": "mail@jonas-staudenmeir.de"
+                }
+            ],
+            "description": "Updater for Laravel Dusk ChromeDriver binaries",
+            "time": "2019-04-30T12:40:42+00:00"
         },
         {
             "name": "theseer/tokenizer",
