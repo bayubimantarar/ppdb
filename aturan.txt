@@ -1,15 +1,17 @@
-1) Rentang jarak 0 - 1.000 meter memiliki skor 400 
-2) Rentang jarak 1.001 - 2.000 meter memiliki skor 395 
-3) Rentang jarak 2.001 - 3.000 meter memiliki skor 390 
-4) Rentang jarak 3.001 - 4.000 meter memiliki skor 385 
-5) Rentang jarak 4.001 - 5.000 meter memiliki skor 380 
-6) Rentang jarak 5.001 - 6.000 meter memiliki skor 375 
+1) Rentang jarak 0 - 1.000 meter memiliki skor 400
+2) Rentang jarak 1.001 - 2.000 meter memiliki skor 395
+3) Rentang jarak 2.001 - 3.000 meter memiliki skor 390
+4) Rentang jarak 3.001 - 4.000 meter memiliki skor 385
+5) Rentang jarak 4.001 - 5.000 meter memiliki skor 380
+6) Rentang jarak 5.001 - 6.000 meter memiliki skor 375
 7) Rentang jarak 6.001 - 7.000 meter memiliki skor 370
-8) Rentang jarak 7.001 - 8.000 meter memiliki skor 365 
-9) Rentang jarak 8.001 - 9.000 meter memiliki skor 360 
-10) Rentang jarak 9.001 - 10.000 meter memiliki skor 355 
+8) Rentang jarak 7.001 - 8.000 meter memiliki skor 365
+9) Rentang jarak 8.001 - 9.000 meter memiliki skor 360
+10) Rentang jarak 9.001 - 10.000 meter memiliki skor 355
 11) Rentang jarak lebih dari 10.000 meter memiliki skor 350
 
-Proses seleksi dilakukan melalui pemeringkatan oleh sistem IT berdasarkan perhitungan : 
-Skor total = (skor jarak domisili x bobot) + (jumlah NHUN x bobot) 
+Proses seleksi dilakukan melalui pemeringkatan oleh sistem IT berdasarkan perhitungan :
+Skor total = (skor jarak domisili x bobot) + (jumlah NHUN x bobot)
 dengan perbandingan bobot untuk jarak 30%, bobot untuk NHUN 70%.
+
+Test Travis CI Status Bar Package.
